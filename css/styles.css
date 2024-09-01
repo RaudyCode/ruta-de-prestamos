@@ -1,0 +1,328 @@
+/* globales */
+
+/*Google Font Poppins*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root{
+    --blanco:#fff;
+    --colorPrincipal:#319795;
+    --negro:#111111;
+    --gris:#636364;
+    --colorSecundario:#EDF2F7;
+    --fuentePrincipal:"Poppins", sans-serif;
+
+}
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after{
+    box-sizing: inherit;
+ 
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: var(--fuentePrincipal);
+}
+
+body{
+    min-height: 100%;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    background-color: var(--blanco);
+
+}
+
+
+h1, h2, h3 {
+    font-weight: 900;
+    margin: 1rem 0 4rem 0;
+    line-height: 1.2;
+}
+
+h1{
+    font-size: 4.8rem;
+}
+
+h2{
+    font-size: 5.8rem;
+
+}
+
+h3{
+    font-size: 5rem;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+img{
+    max-width: 100%;
+    display: block;
+}
+
+.contenedor{
+    max-width:120rem ;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.btn{
+    color: var(--gris);
+    background-color: var(--blanco);
+    border: 1px solid var(--gris);
+    padding: .5rem 2rem;
+    transition: background-color .3s;
+}
+
+.btn:hover{
+    background-color: var(--gris);
+    color: var(--blanco);
+}
+
+/* utilidades */
+
+.text-center{
+    text-align: center;
+}
+
+.mt-5 {
+    margin-top: 5rem;
+}
+
+/* header */
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: auto;
+    display: flex;
+    align-items: center;
+    background-color: var(--blanco);
+    box-shadow: 0 0 1px rgb(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+
+nav .logo{
+    display: flex;
+    align-items: center;
+    margin: 0 2.4rem;
+}
+
+.logo .menu-icon{
+    color: #333;
+    font-size: 2.4rem;
+    margin-right: 1.4rem;
+    cursor: pointer;
+}
+
+.logo .logo-name{
+    color: var(--gris);
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+
+nav .sidebar {
+    position: fixed;
+    top: 0;
+    left:-100%;
+    height: 100%;
+    width: 29rem;
+    padding: 2rem 0;
+    background-color: var(--blanco);
+    box-shadow: 0 5px 10px rgb(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+}
+
+nav.open .sidebar{
+    left:0;
+}
+
+.sidebar .sidebar-content{
+    padding: 3rem 1.6rem;
+}
+
+.sidebar-content .list{
+    list-style: none;
+}
+
+.list .nav-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 1.4rem 1.2rem;
+    border-radius: 0.8rem;
+}
+
+.nav-link:hover{
+    background-color: var(--colorPrincipal);
+}
+
+.nav-link .icon {
+    margin-right: 1.4rem;
+    font-size: 2rem;
+    color: var(--gris);
+}
+
+.nav-link .link{
+    font-size: 1.6rem;
+    color: var(--gris);
+    font-weight: 400;
+}
+
+.nav-link:hover .icon,
+.nav-link:hover .link{
+    color: var(--blanco);
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left:-100%;
+    height: 100vh;
+    opacity: 0;
+    width: 200%;
+    background-color: rgb(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
+    pointer-events: none;
+    z-index: 1;
+    
+}
+
+
+.open .overlay{
+    opacity: 1;
+    left: 29rem;
+    pointer-events: auto;
+}
+
+main{
+    padding-top: 5rem;
+}
+
+
+/* lista de clientes */ 
+
+.buscador{
+    position: relative;
+    display:inline-block;
+    
+}
+
+.buscador input {
+    padding: 1rem;
+    padding-right: 35rem;
+    border-radius: 5px;
+    border: 0;
+    background-color: var(--colorSecundario);
+    font-size: 2rem;
+    z-index: -4;
+}
+
+.buscador button {
+    background-color: var(--colorPrincipal);
+    padding: 1rem 1.5rem;
+    position: absolute;
+    border: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 0 5px 5px 0;
+    color: var(--blanco);
+    cursor: pointer;
+}
+
+
+.lista-clientes {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.header-clientes th, .cuerpo-clientes td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-clientes th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.cuerpo-clientes tr:hover {
+    background-color: #f5f5f5;
+}
+
+.lista-clientes td {
+    vertical-align: middle;
+}
+
+.lista-clientes th:nth-child(3),
+.lista-clientes td:nth-child(3),
+.lista-clientes th:nth-child(4),
+.lista-clientes td:nth-child(4),
+.lista-clientes th:nth-child(5),
+.lista-clientes td:nth-child(5) {
+    text-align: center;
+}
+
+.cliente{
+    cursor: pointer;
+}
+
+/* agregar nuevo cliente */
+
+
+.form-container {
+    background-color: var(--blanco);
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--colorPrincipal);
+    font-size: 2.4rem;
+}
+.form-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--negro);
+}
+.form-container input[type="text"],
+.form-container input[type="number"],
+.form-container input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--gris);
+    border-radius: 3px;
+    font-size: 1.6rem;
+}
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--colorPrincipal);
+    color: var(--blanco);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1.6rem;
+}
+.form-container button:hover {
+    background-color: var(--gris);
+}
