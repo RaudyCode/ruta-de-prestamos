@@ -280,6 +280,19 @@ main{
     cursor: pointer;
 }
 
+.btn-action{
+    display: flex;
+    gap: 2rem;
+}
+
+.btn-action .editar{
+    color: var(--colorPrincipal);
+}
+
+.btn-action .eliminar{
+    color: rgb(206, 15, 15);
+}
+
 /* agregar nuevo cliente */
 
 
