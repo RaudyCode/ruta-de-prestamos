@@ -97,6 +97,24 @@ img{
     margin-top: 5rem;
 }
 
+div.alerta{
+    
+    padding: 2rem;
+    text-align: center;
+    margin-top: 1rem;
+    color: var(--blanco);
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.error{
+    background-color: rgb(173, 32, 32);
+}
+
+.exito{
+    background-color: rgb(30, 167, 30);
+}
+
 /* header */
 nav{
     position: fixed;

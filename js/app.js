@@ -1,34 +1,16 @@
-// variables 
+// importaciones
+import { sidebar, crearDB } from "./fuciones.js";
 
 
+(function(){
+    document.addEventListener('DOMContentLoaded', () => {
+        // sidebar
+        sidebar();
 
-// clases
-
-
-
-// eventListeners
-
-document.addEventListener('DOMContentLoaded', () => {
-    // sidebar
-    sidebar();
-})
-
-
-// funciones
-
-function sidebar(){
-    const navBar = document.querySelector("nav");
-    const menuBtns = document.querySelectorAll(".menu-icon");
-    const overlay = document.querySelector(".overlay");
-
-    menuBtns.forEach((menuBtn) =>{
-        menuBtn.addEventListener("click", ()=>{
-            navBar.classList.toggle("open");
-        });
-    });
-
-    overlay.addEventListener('click', () =>{
-        console.log('hola')
-        navBar.classList.remove("open");
+        // base de datos
+        crearDB();
     })
-}
+    
+})();
+
+
