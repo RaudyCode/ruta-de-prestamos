@@ -61,7 +61,7 @@ import { imprimirAlerta } from "./fuciones.js";
             monto,
             numero,
             cuota:Number(monto) / 10,
-            semana:1,
+            semana:0,
             id:Date.now()
         };
 

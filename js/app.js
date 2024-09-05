@@ -1,5 +1,5 @@
 // importaciones
-import { sidebar, crearDB } from "./fuciones.js";
+import { sidebar, crearDB, obtenerClientes } from "./fuciones.js";
 
 
 (function(){
@@ -9,7 +9,13 @@ import { sidebar, crearDB } from "./fuciones.js";
 
         // base de datos
         crearDB();
+
+        // obtener los clientes de la DB
+        if(window.indexedDB.open('clientes', 1)){
+            obtenerClientes();
+        }
     })
+
     
 })();
 

@@ -73,3 +73,48 @@ export function imprimirAlerta(mensaje, tipo){
 
 
 }
+
+export function obtenerClientes(){
+    const abrirConexion = window.indexedDB.open('clientes', 1);
+
+    abrirConexion.onsuccess = function (){
+        DB = abrirConexion.result;
+        const objectStore = DB.transaction('clientes').objectStore('clientes');
+
+        objectStore.openCursor().onsuccess = function(e){
+            const cursor = e.target.result;
+
+            if(cursor){
+                const {nombre,cedula,fecha,direccion,monto,numero,cuota,semana,id} = cursor.value;
+
+                const listadoCliente = document.querySelector(".cuerpo-clientes");
+
+                listadoCliente.innerHTML += `
+
+                    <tr class="cliente">
+                      <td>${nombre}</td>
+                      <td>${cedula}</td>
+                      <td>${fecha}</td>
+                      <td>${monto}</td>
+                      <td>${cuota}</td>
+                      <td>${semana}</td>
+                      <td class="btn-action">
+                        <a href="editar-cliente.html?id=${id}" class="editar" >Editar</a>
+                        <a href="#" class="eliminar" data-Cliente="${id}">Eliminar</a>
+                      </td>
+                    </tr>
+                
+                `
+
+                cursor.continue();
+            }else{
+                console.log("no hay mas registros...")
+            }
+        }
+    
+    }
+
+    abrirConexion.onerror = function(){
+        console.log("Hubo un error al llamar a los clientes")
+    }
+}
