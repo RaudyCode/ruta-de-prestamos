@@ -246,7 +246,7 @@ main{
     z-index: -4;
 }
 
-.buscador button {
+/* .buscador button {
     background-color: var(--colorPrincipal);
     padding: 1rem 1.5rem;
     position: absolute;
@@ -258,7 +258,7 @@ main{
     border-radius: 0 5px 5px 0;
     color: var(--blanco);
     cursor: pointer;
-}
+} */
 
 
 .lista-clientes {
@@ -294,9 +294,6 @@ main{
     text-align: center;
 }
 
-.cliente{
-    cursor: pointer;
-}
 
 .btn-action{
     display: flex;
@@ -311,6 +308,58 @@ main{
     color: rgb(206, 15, 15);
 }
 
+
+.mostrar-info{
+    cursor: pointer;
+}
+
+.mostrar-info:hover{
+    color: rgb(59, 111, 255);
+}
+
+#mas-opciones{
+    position: relative;
+}
+
+.increment-decrement{
+    padding: 2rem;
+    position: absolute;
+    top: 4rem;
+    left: -15rem;
+    display: none;
+    
+    background-color: var(--blanco);
+    border-radius: 10px; /* Bordes redondeados para un look más suave */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+#mas-opciones:hover .increment-decrement{
+    display: flex;
+    gap: 2rem;
+}
+
+.increment-decrement button{
+    padding: 1rem 2rem;
+    background-color: var(--blanco);
+    border: 1px solid var(--gris);
+}
+
+.increment-decrement button:hover{
+    cursor: pointer;
+    background-color: #319795;
+    color: var(--blanco);
+}
+
+.increment-decrement {
+    opacity: 0;
+    visibility: hidden; /* Para asegurar que el espacio se colapse */
+    transition: opacity 0.3s ease;
+}
+
+#mas-opciones:hover .increment-decrement {
+    opacity: 1;
+    visibility: visible; /* Lo hacemos visible con transición */
+}
 /* agregar nuevo cliente */
 
 

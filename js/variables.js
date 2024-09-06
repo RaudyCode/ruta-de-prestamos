@@ -5,3 +5,5 @@ export const overlay = document.querySelector(".overlay");
 export const formulario = document.querySelector("#formulario");
 export const listadoCliente = document.querySelector(".cuerpo-clientes");
 export const buscarInput = document.querySelector('#buscar-cliente');
+export const incrementarBtn = document.querySelector("#incrementar");
+export const decrementarBtn = document.querySelector("#decrementar");

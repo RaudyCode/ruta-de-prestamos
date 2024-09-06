@@ -93,7 +93,7 @@ export function obtenerClientes(){
                 if (listadoCliente) {
                     listadoCliente.innerHTML += `
                         <tr class="cliente">
-                            <td>${nombre}</td>
+                            <td class="mostrar-info">${nombre}</td>
                             <td>${cedula}</td>
                             <td>${fecha}</td>
                             <td>${monto}</td>
@@ -193,4 +193,37 @@ export function eliminarCliente(e){
 
         
     }
+}
+
+export function modificarSemanas(accion){
+    const transaction = DB.transaction(['clientes'], 'readwrite');
+    const objectStore = transaction.objectStore('clientes');
+
+    objectStore.openCursor().onsuccess = function(e) {
+        const cursor = e.target.result;
+
+        if (cursor) {
+            let cliente = cursor.value;
+
+            if (accion === "incrementar" && cliente.semana < 13) {
+                cliente.semana++;
+            } else if (accion === "decrementar" && cliente.semana > 0) {
+                cliente.semana--;
+            }
+
+            // Actualizar el cliente si cambió la semana
+            const actualizarTransaction = DB.transaction(['clientes'], 'readwrite');
+            const actualizarStore = actualizarTransaction.objectStore('clientes');
+            actualizarStore.put(cliente);
+
+            cursor.continue();
+        } else {
+            console.log("Se actualizaron todas las semanas");
+            location.reload();
+        }
+    };
+
+    transaction.onerror = function() {
+        console.log("Hubo un error al modificar las semanas");
+    };
 }
