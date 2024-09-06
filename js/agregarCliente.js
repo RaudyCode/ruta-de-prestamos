@@ -13,25 +13,26 @@ import { imprimirAlerta } from "./fuciones.js";
         formulario.addEventListener('submit', validarCliente);
     });
 
-    function conectarDB(){
+    function conectarDB() {
         const abrirConexion = window.indexedDB.open('clientes', 1);
-
-        abrirConexion.onerror = function(){
-            console.log("hubo un error sl conectar con la base de datos");
+    
+        abrirConexion.onerror = function() {
+            console.log("Hubo un error al conectarse a la base de datos");
         };
-
-        abrirConexion.onsuccess= function(){
+    
+        abrirConexion.onsuccess = function() {
             DB = abrirConexion.result;
+            console.log("Base de datos conectada correctamente");
         };
-
-        abrirConexion.onupgradeneeded = function(e){
+    
+        abrirConexion.onupgradeneeded = function(e) {
             const db = e.target.result;
-            db.createObjectStore('clientes', {keyPath:'id', autoIncrement:true});
-
-            console.log("BAse de datos lista y actualizada");
+            if (!db.objectStoreNames.contains('clientes')) {
+                const objectStore = db.createObjectStore('clientes', { keyPath: 'id', autoIncrement: true });
+                objectStore.createIndex('cedula', 'cedula', { unique: true });
+                console.log("Base de datos creada");
+            }
         };
-
-
     }
 
     function validarCliente(e){

@@ -3,8 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ruta De Prestamos</title>
-
+        <title>Editar Cliente</title>
 
         <!-- Css -->
         <link rel="stylesheet" href="css/normalize.css">
@@ -12,7 +11,6 @@
 
         <!-- BoxIcon Css -->
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
         
     </head>
     <body>
@@ -36,78 +34,62 @@
                                     <i class='bx bx-home-circle icon'></i>
                                     <span class="link">HOME</span>
                                 </a>
-                            </li> <!--link-->
+                            </li>
                             <li class="list">
                                 <a href="#" class="nav-link">
                                     <i class='bx bx-list-ul icon' ></i>
                                     <span class="link">LISTA CLIENTES</span>
                                 </a>
-                            </li> <!--link-->
+                            </li>
                             <li class="list">
                                 <a href="agregarCliente.html" class="nav-link">
                                     <i class='bx bx-add-to-queue icon' ></i>
                                     <span class="link">NUEVO CLIENTE</span>
                                 </a>
-                            </li> <!--link-->
-                            <li class="list">
-                                <a href="#" class="nav-link">
-                                    <i class='bx bx-home-circle icon'></i>
-                                    <span class="link">HOME</span>
-                                </a>
-                            </li> <!--link-->
-                            <li class="list">
-                                <a href="#" class="nav-link">
-                                    <i class='bx bx-home-circle icon'></i>
-                                    <span class="link">HOME</span>
-                                </a>
-                            </li> <!--link-->
-                            <li class="list">
-                                <a href="#" class="nav-link">
-                                    <i class='bx bx-home-circle icon'></i>
-                                    <span class="link">HOME</span>
-                                </a>
-                            </li> <!--link-->
+                            </li>
                         </ul>
                     </div>
                 </div>
-                <div class="overlay">
-            
-                </div>
+                <div class="overlay"></div>
             </nav>
        </header>
 
-       
-       <main class="contenedor">
-            <h1>Clientes</h1>
+       <main class="contenedor mt-5">
+            <h1 class="text-center">Editar Cliente</h1>
+            <div class="form-container">
+                <h2>Formulario de Edición</h2>
+                <form id="formulario">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" value="">
 
+                    <label for="cedula">Cédula:</label>
+                    <input type="text" id="cedula" name="cedula" value="">
 
-            <form class="buscador">
-                <input id="buscar-cliente" type="text" placeholder="Buscar...Nombre">
-            </form>
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" id="fecha" name="fecha" value="">
 
-            
-            
+                    <label for="direccion">Direccion:</label>
+                    <input type="text" id="direccion" name="direccion" value="">
 
-            <table class="lista-clientes mt-5">
-                <thead class="header-clientes">
-                  <tr>
-                    <th>Nombre</th>
-                    <th>Cedula</th>
-                    <th>Fecha</th>
-                    <th>Monto</th>
-                    <th>Cuotas</th>
-                    <th>Semana</th>
-                    <th>Acciones</th>
+                    <label for="monto">Monto:</label>
+                    <input type="number" id="monto" name="monto" value="">
 
-                  </tr>
-                </thead>
-                <tbody class="cuerpo-clientes">
-                    
-                </tbody>
-                  
-            </table>
+                    <label for="numero">Número:</label>
+                    <input type="number" id="numero" name="numero" value="">
 
+                    <label for="cuota">Cuota:</label>
+                    <input type="number" id="cuota" name="cuota" value="">
+
+                    <label for="semana">Semana:</label>
+                    <input type="number" id="semana" name="semana" value="">
+
+                    <button type="submit">Actualizar Cliente</button>
+                </form>
+            </div>
        </main>
+
+       <script src="js/editarClientes.js" type="module"></script>
        <script src="js/app.js" type="module"></script>
+       
     </body>
 </html>
